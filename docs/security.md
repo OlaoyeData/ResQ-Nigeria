@@ -1,0 +1,5 @@
+# Security and privacy
+
+Report data may include narrative, phone/name, coordinates, addresses, postcodes, and sender/message identifiers. It is used for incident review and follow-up. Internal details require operator/admin bearer auth; citizen tracking shares a reduced record. Passwords are hashed. Database access is parameterized through SQLAlchemy. API credentials are server-side environment variables.
+
+Before production, replace the demo JWT secret, secure the database, enforce TLS, configure restrictive CORS, replace the per-process rate limit with a shared store, review authorization/audit access, configure operational secret rotation, and set an approved retention schedule with deletion/export workflows. Meta webhook HMAC is enforced when the Meta provider is selected. This MVP does not auto-delete records or revoke active JWTs. Never seed actual incidents or people into demo databases. Facilities' emergency capacity defaults to unknown; unit availability is based only on stored status. AI output is non-authoritative.

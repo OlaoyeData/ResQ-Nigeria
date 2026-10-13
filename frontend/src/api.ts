@@ -1,0 +1,4 @@
+export const API = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+export function token(){return localStorage.getItem('resq-token')||''}
+export async function request<T=any>(path:string, init:RequestInit={}):Promise<T>{const headers=new Headers(init.headers); if(!(init.body instanceof FormData)&&!headers.has('Content-Type')) headers.set('Content-Type','application/json'); if(token()) headers.set('Authorization',`Bearer ${token()}`); const response=await fetch(`${API}${path}`,{...init,headers}); const json=await response.json().catch(()=>({})); if(!response.ok) throw new Error(typeof json.detail==='string'?json.detail:json.detail?.message||json.message||`Request failed (${response.status})`); return json as T}
+export const saveToken=(value:string)=>localStorage.setItem('resq-token',value);
