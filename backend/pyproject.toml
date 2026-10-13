@@ -1,5 +1,27 @@
+[project]
+name = "resq-nigeria-backend"
+version = "0.1.0"
+description = "Emergency coordination and decision-support API prototype"
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi>=0.115,<1",
+    "uvicorn[standard]>=0.30,<1",
+    "sqlalchemy>=2.0,<3",
+    "psycopg[binary]>=3.2,<4",
+    "alembic>=1.13,<2",
+    "pydantic-settings>=2.4,<3",
+    "python-jose[cryptography]>=3.3,<4",
+    "passlib[bcrypt]>=1.7,<2",
+    "bcrypt==4.0.1",
+    "python-multipart>=0.0.9",
+    "httpx>=0.27,<1",
+]
+
+[tool.uv]
+package = false
+
 [tool.ruff]
-target-version = "py313"
+target-version = "py312"
 line-length = 140
 
 [tool.ruff.lint]

@@ -14,5 +14,7 @@ dist/
 *.sqlite
 *.sqlite3
 .vercel/
+.uv-cache/
+.uv-python/
 coverage/
 .DS_Store
